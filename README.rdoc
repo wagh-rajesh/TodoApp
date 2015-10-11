@@ -1,28 +1,35 @@
-== README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This sample application for monitoring Tasks between different 
+users makes use of Ruby (version 2.2.1p85) and Rails 
+(version 4.2.3).
 
-Things you may want to cover:
+The application can be made up and running by following steps.
 
-* Ruby version
+	1.	Take the checkout of App from git repo as :-> 
+			
+			git clone https://github.com/wraj/TodoApp.git
 
-* System dependencies
+	2.	Go to App directory and run :->
+	
+			bundle install
 
-* Configuration
+	3.	Migrate the DB as :->
+			
+			rake db:migrate
 
-* Database creation
+	4.	Run the rails server as :->
 
-* Database initialization
+			rails server 
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+	5.	Access the server on "localhost:3000"			
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Desging of Application :
+
+	The application is used to monitor the tasks amongst the users, 
+	so the user can have many tasks but the task can only belong to
+	user to avoid the duplicates. Hence, we are using one to many 
+	relationship to achieve this functionality.
+
+	
+
