@@ -1,6 +1,9 @@
-<h1 align="center" style="padding: 0 0 0 0">Editing Todo Item</h1>
+<div style="padding-left: 10px">
+	<%= link_to '', todo_items_path, title: 'Back', rel: 'tooltip', class: "btn btn-primary fa fa-arrow-left " %>  &nbsp;
+	<%= link_to '', @todo_item, title: 'Show', rel: 'tooltip', class: "btn btn-primary fa fa-search" %>
+
+</div>
+<h1 align="center" style="padding: 0 0 0 0">Edit Current Task</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @todo_item, class: "btn btn-primary" %> |
-<%= link_to 'Back', todo_items_path, class: "btn btn-primary" %>

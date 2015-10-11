@@ -1,5 +1,9 @@
-<%= link_to 'Back', todo_items_path, class: "btn btn-default" %> <h1 align="center">New Todo Item</h1>
+<div style="padding-left: 10px">
+	<%= link_to '', todo_items_path, title: 'Back', rel: 'tooltip', class: "btn btn-primary fa fa-arrow-left " %>
+</div>	
 
-<%= render 'form' %>
+ <h1 align="center">Create New Task</h1>
+
+<%= render 'form' %> 
 
 
