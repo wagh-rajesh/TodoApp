@@ -15,3 +15,20 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$('document').ready(function() {
+  setTimeout(function() {
+    $('#notice').slideUp();
+  }, 3000);
+});
+
+$('document').ready(function() {
+  setTimeout(function() {
+    $('#error').slideUp();
+  }, 3000);
+});
+
+function checkStatus(status) {
+	alert("status = " + status);
+	
+}

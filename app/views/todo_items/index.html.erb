@@ -25,7 +25,7 @@
         <td><%= get_task_status(todo_item.status) %></td>
         <td width="20"><%= link_to '', todo_item, title: 'Show', rel: 'tooltip', class: "btn btn-default fa fa-search" %></td>
         <td width="20"><%= link_to '', edit_todo_item_path(todo_item), title: 'Edit or Share', rel: 'tooltip', class: "btn btn-default glyphicon glyphicon-edit" %></td>
-        <td width="20"><%= link_to '', todo_items_mark_done_path(todo_item.id), title: 'Mark Finished', rel: 'tooltip', class: "btn btn-default fa fa-check " %></td>
+        <td width="20"><%= link_to '', todo_items_mark_done_path(todo_item.id), title: 'Mark Finished', rel: 'tooltip', class: "btn btn-default fa fa-check "%></td>
         <td width="20"><%= link_to '', todo_item, title: 'Delete', rel: 'tooltip', class: "btn btn-default fa fa-trash-o ", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>   		

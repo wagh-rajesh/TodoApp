@@ -10,21 +10,26 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="form-group" style="width: 20%">
+  <div class="container">
+    <div class="row">
+    	<div class="col-md-4 col-md-offset-4">	
+  		<div class="form-group">
     <%= f.label :title %><br>
     <%= f.text_field :title, class: "form-control" %>
   </div>
-  <div class="form-group" style="width: 20%">
+  <div class="form-group">
     <%= f.label :description %><br>
     <%= f.text_area :description, class: "form-control" %>
   </div>
-    <div class="form-group" style="width: 20%">
+    <div class="form-group">
     <%= f.label :share_with %> ( optional ) <br>
     <%= select_tag("user", options_for_select(@users_list.to_a), 
     		{:class => 'form-control', :include_blank => 'Please select a user'} )%>
   </div>
   <div class="actions">
     <%= f.submit "Save", class: "btn btn-primary" %>
-  </div>
+  		</div>
+      </div>
+	</div>	
+ </div>
 <% end %>

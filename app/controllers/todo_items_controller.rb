@@ -3,10 +3,10 @@ class TodoItemsController < ApplicationController
   before_action :set_todo_item, only: [:show, :edit, :update, :destroy]
   
   def index
-    binding.pry
+    #binding.pry
     @todo_items = User.find(current_user.id).todo_items
     @shared_items = TodoItem.find_by_share_with(current_user.id)
-    @todo_item = @todo_items << @shared_items if !@shared_items.nil?
+    @todo_items = @todo_items << @shared_items if !@shared_items.nil?
     @user_list = User.all
   end
 
@@ -68,9 +68,13 @@ class TodoItemsController < ApplicationController
     def set_todo_item
       if params[:id].to_s == "mark_done"
         @todo_item = TodoItem.find(params[:format].to_i)
-        @todo_item.status = 1       # Marking Status as Finished 
-        @todo_item.save!
-        redirect_to todo_items_url, notice: 'Status was successfully modified.'
+        if @todo_item.status == 0  
+          @todo_item.status = 1       # Marking Status as Finished 
+          @todo_item.save!
+          redirect_to todo_items_url, notice: 'Status was successfully modified.'
+        else
+          redirect_to todo_items_url, error: 'Status can not be modified.'
+        end  
       else 
         @todo_item = TodoItem.find(params[:id])  
       end   
