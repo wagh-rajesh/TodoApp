@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @todo_item.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @todo_item.description %>
+</p>
+
+<p>
+  <strong>Shared With:</strong>
+  <%= get_shared_user(@todo_item.share_with) if !@todo_item.share_with.nil? %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= get_task_status(@todo_item.status) %>
+</p>
+
+<%= link_to 'Edit', edit_todo_item_path(@todo_item), class: "btn btn-primary" %> |
+<%= link_to 'Back', todo_items_path, class: "btn btn-primary" %>

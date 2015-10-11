@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table table-hover">
+  <thead>
+  	<tr>
+  		<th align="center"><h1> Todo Items</h1></th>
+  	</tr>	
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Created By</th>
+      <th>Shared With</th>
+      <th>Status</th> 		
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todo_items.each do |todo_item| %>
+      <tr>
+        <td><%= todo_item.title %></td>
+        <td><%= todo_item.description %></td>
+        <td><%= todo_item.user.name.to_s %></td>
+        <td> <%= get_shared_user(todo_item.share_with) if !todo_item.share_with.nil? %></td>
+        <td><%= get_task_status(todo_item.status) %></td>
+        <td width="20"><%= link_to '', todo_item, title: 'Show', rel: 'tooltip', class: "btn btn-default fa fa-search" %></td>
+        <td width="20"><%= link_to '', edit_todo_item_path(todo_item), title: 'Edit or Share', rel: 'tooltip', class: "btn btn-default glyphicon glyphicon-edit" %></td>
+        <td width="20"><%= link_to '', todo_items_mark_done_path(todo_item.id), title: 'Mark Finished', rel: 'tooltip', class: "btn btn-default fa fa-check " %></td>
+        <td width="20"><%= link_to '', todo_item, title: 'Delete', rel: 'tooltip', class: "btn btn-default fa fa-trash-o ", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>   		
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'New Todo item', new_todo_item_path, class: "btn btn-primary" %>

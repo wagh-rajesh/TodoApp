@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ToDoApp</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<% if user_signed_in? %>
+	<nav class="navbar navbar-inverse navbar-static-top no-margin " role="navigation" >
+	<div class="container-fluid">
+		<div class="navbar-left navbar-brand"">
+			<p><b>Hello, <%= current_user.name %></b> </p>
+		</div>
+		
+		<div class="collapse navbar-collapse navbar-right">		
+			<ul class="nav navbar-nav ">	
+				<li><%= link_to "Log Out", destroy_user_session_path, class: "btn btn-lg", :method => 'delete' %></li>
+			</ul>
+		</div>
+	</div>		
+	</nav>	
+	<% end %>
+<%= yield %>
+
+	
+
+</body>
+</html>

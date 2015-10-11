@@ -1,0 +1,30 @@
+<%= form_for(@todo_item) do |f| %>
+  <% if @todo_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@todo_item.errors.count, "error") %> prohibited this todo_item from being saved:</h2>
+
+      <ul>
+      <% @todo_item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group" style="width: 20%">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group" style="width: 20%">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+    <div class="form-group" style="width: 20%">
+    <%= f.label :share_with %> ( optional ) <br>
+    <%= select_tag("user", options_for_select(@users_list.to_a), 
+    		{:class => 'form-control', :include_blank => 'Please select a user'} )%>
+  </div>
+  <div class="actions">
+    <%= f.submit "Save", class: "btn btn-primary" %>
+  </div>
+<% end %>
